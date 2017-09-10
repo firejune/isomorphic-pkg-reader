@@ -28,7 +28,7 @@ app.post('/upload', function(req, res, next) {
     if (req.file) {
       var file = req.file;
       var extension = utils.getExtension(file.originalname);
-      var reader = new PkgReader(file.path, extension, { searchResource: true });
+      var reader = new PkgReader(file.path, extension, { searchResource: true, withIcon: true, iconType: 'node-base64' });
 
       reader.parse(function(err, pkgInfo) {
         if (err) {
